@@ -2,6 +2,10 @@
 <resources>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="graphColorErwachsene">#D50000</color>
+    <color name="graphColorKinder">#00b8d4</color>
+    <color name="graphColorKleinkinder">#ffd600</color>
+
 
     <color name="primaryColor">#1c4a87</color>
     <color name="primaryLightColor">#5475b7</color>

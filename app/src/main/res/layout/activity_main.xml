@@ -16,18 +16,19 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/textFieldName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Name"
+                android:hint="@string/activity_main_textFieldName"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:autofillHints="" tools:targetApi="o"/>
 
             <EditText
                 android:id="@+id/dateFieldBirthday"
@@ -36,8 +37,9 @@
                 app:layout_constraintTop_toBottomOf="@id/textFieldName"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="Geburtsdatum"
-                android:inputType="date" />
+                android:hint="@string/activity_main_dateFieldBirthday"
+                android:inputType="date"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
             <EditText
                 android:id="@+id/numberDecimalFieldInsulin"
@@ -46,8 +48,9 @@
                 app:layout_constraintTop_toBottomOf="@id/dateFieldBirthday"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="Täglicher Insulinbedarf Ø30Tage"
-                android:inputType="numberDecimal" />
+                android:hint="@string/activity_main_numberDecimalFieldInsulin"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
             <EditText
                 android:id="@+id/numberDecimalFieldBasalRelative"
@@ -56,19 +59,21 @@
                 app:layout_constraintTop_toBottomOf="@id/numberDecimalFieldInsulin"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="Basalanteil Ø30Tage"
-                android:inputType="numberDecimal" />
+                android:hint="@string/activity_main_numberDecimalFieldBasalRelative"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
             <EditText
                 android:id="@+id/numberFieldWeight"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Gewicht"
+                android:hint="@string/activity_main_numberFieldWeight"
                 android:inputType="number"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/numberDecimalFieldBasalRelative" />
+                app:layout_constraintTop_toBottomOf="@id/numberDecimalFieldBasalRelative"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
             <EditText
                 android:id="@+id/timeFieldWakeupTime"
@@ -77,8 +82,9 @@
                 app:layout_constraintTop_toBottomOf="@id/numberFieldWeight"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="Aufstehzeit"
-                android:inputType="time" />
+                android:hint="@string/activity_main_timeFieldWakeupTime"
+                android:inputType="time"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
@@ -91,6 +97,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:elevation="0dp"
         android:onClick="startResultActivity"
-        android:text="OK"
+        android:text="@string/activity_main_open_graph_activity_button"
         />
 </android.support.constraint.ConstraintLayout>
