@@ -11,4 +11,8 @@
     <string name="activity_main_timeFieldWakeupTime">Wakeup time</string>
     <string name="activity_main_open_graph_activity_button">OK</string>
     <string name="title_graph_activity">Basalrate</string>
+    <string name="title_activity_values">ValuesActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
 </resources>

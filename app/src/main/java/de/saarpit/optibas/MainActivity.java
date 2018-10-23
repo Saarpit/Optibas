@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 String.valueOf(textFieldName.getText()));
         editor.commit();
 
-        startActivity(new Intent(MainActivity.this, GraphActivity.class));
+        //startActivity(new Intent(MainActivity.this, GraphActivity.class));
+        startActivity(new Intent(MainActivity.this, ValuesActivity.class));
     }
 }
