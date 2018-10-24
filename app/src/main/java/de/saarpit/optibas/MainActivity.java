@@ -15,19 +15,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void startResultActivity(View v){
-        SharedPreferences sharedPref = getApplication().getSharedPreferences("main", Context.MODE_PRIVATE);
+        /*SharedPreferences sharedPref = getApplication().getSharedPreferences("main", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         EditText textFieldName = (EditText)findViewById(R.id.textFieldName);
         editor.putString(getString(R.string.activity_main_textFieldName),
                 String.valueOf(textFieldName.getText()));
-        editor.commit();
+        editor.commit();*/
 
         //startActivity(new Intent(MainActivity.this, GraphActivity.class));
-        startActivity(new Intent(MainActivity.this, ValuesActivity.class));
+        //startActivity(new Intent(MainActivity.this, ValuesActivity.class));
+        startActivity(new Intent(MainActivity.this, DataActivity.class));
     }
 }

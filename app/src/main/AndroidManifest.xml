@@ -20,6 +20,13 @@
             android:name=".ValuesActivity"
             android:label="@string/title_activity_values"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".DataActivity"
+            android:label="@string/title_activity_values"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>

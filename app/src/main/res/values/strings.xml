@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Optibas</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="activity_main_textFieldName">Name</string>
     <string name="activity_main_dateFieldBirthday">Birthday</string>
     <string name="activity_main_numberDecimalFieldInsulin">Daily insulin requirement Ø30days</string>
@@ -11,8 +9,7 @@
     <string name="activity_main_timeFieldWakeupTime">Wakeup time</string>
     <string name="activity_main_open_graph_activity_button">OK</string>
     <string name="title_graph_activity">Basalrate</string>
-    <string name="title_activity_values">ValuesActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="tab_text_3">Tab 3</string>
+    <string name="title_activity_values">Basaldistribution</string>
+    <string name="table">Table</string>
+    <string name="graph">Graph</string>
 </resources>

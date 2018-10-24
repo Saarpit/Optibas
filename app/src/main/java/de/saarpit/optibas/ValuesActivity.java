@@ -1,8 +1,7 @@
 package de.saarpit.optibas;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -11,14 +10,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ListView;
 
-import android.widget.TextView;
+import com.jjoe64.graphview.GraphView;
 
+import de.saarpit.optibas.core.Constants;
 import de.saarpit.optibas.fragments.GraphFragment;
 import de.saarpit.optibas.fragments.ValuesFragment;
 
@@ -58,8 +55,6 @@ public class ValuesActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
-
     }
 
 
@@ -76,8 +71,55 @@ public class ValuesActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new GraphFragment();
+                GraphFragment myFragment = new GraphFragment();
+
+                View rootView = myFragment.getLayoutInflater().inflate(
+                        R.layout.fragment_graph,
+                        mViewPager,
+                        false
+                );
+
+                GraphView myGraphView = (GraphView) rootView.findViewById(R.id.graphView);
+
+                myFragment.addData(
+                        myGraphView,
+                        Constants.BASALVERTEILUNG_KLEINKINDER,
+                        "Kleinkinder",
+                        getResources().getColor(R.color.graphColorKleinkinder)
+                    );
+
+                myFragment.addData(
+                        myGraphView,
+                        Constants.BASALVERTEILUNG_KINDER,
+                        "Kinder",
+                        getResources().getColor(R.color.graphColorKinder)
+                );
+
+                myFragment.addData(
+                        myGraphView,
+                        Constants.BASALVERTEILUNG_ERWACHSENE,
+                        "Erwachsene",
+                        getResources().getColor(R.color.graphColorErwachsene)
+                );
+
+                return myFragment;
             } else {
+                ValuesFragment myFragment = new ValuesFragment();
+
+                View rootView = myFragment.getLayoutInflater().inflate(
+                        R.layout.fragment_graph,
+                        mViewPager,
+                        false
+                );
+
+                /*ListView myListView  = (ListView) rootView.findViewById(R.id.listview_basalvalues);
+
+                myFragment.addData(
+                        myListView,
+                        Constants.BASALVERTEILUNG_KLEINKINDER,
+                        "Kleinkinder"
+                );*/
+
                 return new ValuesFragment();
             }
         }
