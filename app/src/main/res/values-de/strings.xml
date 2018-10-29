@@ -12,4 +12,5 @@
     <string name="table">Tabelle</string>
     <string name="graph">Graph</string>
     <string name="title_activity_values">Basalverteilung</string>
+    <string name="button_save">Speichern</string>
 </resources>

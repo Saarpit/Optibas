@@ -9,24 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".ValuesActivity"
+            android:label="@string/title_activity_values"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DataActivity"
+            android:label="@string/title_activity_values"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserListActivity"
+            android:label="@string/title_activity_user_list"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ValuesActivity"
-            android:label="@string/title_activity_values"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".DataActivity"
-            android:label="@string/title_activity_values"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+        <activity android:name=".NewUserActivity"></activity>
     </application>
 
 </manifest>

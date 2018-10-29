@@ -45,7 +45,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         }
     }
 
-    void setUsers(List<User> users){
+    public void setUsers(List<User> users){
         mUsers = users;
         notifyDataSetChanged();
     }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/textFieldName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_main_textFieldName"
+        android:text="@={fullName}"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/dateFieldBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_main_dateFieldBirthday"
+        android:inputType="date"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/numberDecimalFieldInsulin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_main_numberDecimalFieldInsulin"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/numberDecimalFieldBasalRelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_main_numberDecimalFieldBasalRelative"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/numberFieldWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_main_numberFieldWeight"
+        android:inputType="number"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/timeFieldWakeupTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activity_main_timeFieldWakeupTime"
+        android:inputType="time"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
+
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor"
+        android:text="@string/button_save" />
+
+</LinearLayout>

@@ -6,10 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
+    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,16 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startResultActivity(View v){
-        /*SharedPreferences sharedPref = getApplication().getSharedPreferences("main", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-
-        EditText textFieldName = (EditText)findViewById(R.id.textFieldName);
-        editor.putString(getString(R.string.activity_main_textFieldName),
-                String.valueOf(textFieldName.getText()));
-        editor.commit();*/
-
-        //startActivity(new Intent(MainActivity.this, GraphActivity.class));
-        //startActivity(new Intent(MainActivity.this, ValuesActivity.class));
         startActivity(new Intent(MainActivity.this, DataActivity.class));
     }
+
+
 }
