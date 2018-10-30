@@ -4,8 +4,14 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/userTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light" />
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:padding="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="1dp"
+        android:textColor="@color/secondaryTextColor"
+        android:background="@android:color/white" />
 </LinearLayout>

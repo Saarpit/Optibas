@@ -26,17 +26,5 @@ public class ValuesFragment extends Fragment {
     }
 
 
-    public void addData(ListView listView, Double[] values, String title) {
-        List<Double> basalListe = new ArrayList<>(Arrays.asList(values));
 
-        ArrayAdapter <Double> basalListeAdapter = new ArrayAdapter<>(
-                getActivity(), // Die aktuelle Umgebung (diese Activity)
-                R.layout.listitem_basalvalue, // ID der XML-Layout Datei
-                R.id.listitem_basalvalue_textview, // ID des TextViews
-                basalListe // Beispieldaten in einer ArrayList
-        );
-
-        listView.setAdapter(basalListeAdapter);
-
-    }
 }

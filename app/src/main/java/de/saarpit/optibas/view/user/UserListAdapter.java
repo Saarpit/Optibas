@@ -19,7 +19,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
         private UserViewHolder(View itemView) {
             super(itemView);
-            userItemView = itemView.findViewById(R.id.listitem_basalvalue_textview);
+            userItemView = itemView.findViewById(R.id.userTextView);
         }
     }
 
@@ -30,7 +30,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.listitem_basalvalue, parent, false);
+        View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
         return new UserViewHolder(itemView);
     }
 
