@@ -1,8 +1,12 @@
 package de.saarpit.optibas;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.Color;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -15,9 +19,14 @@ import android.widget.ListView;
 
 import com.jjoe64.graphview.GraphView;
 
+import java.util.List;
+
 import de.saarpit.optibas.core.Constants;
+import de.saarpit.optibas.data.user.User;
+import de.saarpit.optibas.data.user.UserViewModel;
 import de.saarpit.optibas.fragments.GraphFragment;
 import de.saarpit.optibas.fragments.ValuesFragment;
+import de.saarpit.optibas.view.user.UserListAdapter;
 
 public class ValuesActivity extends AppCompatActivity {
 
@@ -35,6 +44,8 @@ public class ValuesActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private UserViewModel mUserViewModel;
+    private User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +66,10 @@ public class ValuesActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        mUserViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+        mUser = mUserViewModel.getUserById(1);
+
     }
 
 
@@ -112,13 +127,7 @@ public class ValuesActivity extends AppCompatActivity {
                         false
                 );
 
-                /*ListView myListView  = (ListView) rootView.findViewById(R.id.listview_basalvalues);
 
-                myFragment.addData(
-                        myListView,
-                        Constants.BASALVERTEILUNG_KLEINKINDER,
-                        "Kleinkinder"
-                );*/
 
                 return new ValuesFragment();
             }
