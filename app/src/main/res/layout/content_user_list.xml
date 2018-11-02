@@ -12,7 +12,8 @@
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/secondaryLightColor"
-        tools:listitem="@layout/recyclerview_item" />
+        tools:listitem="@layout/recyclerview_item"
+        android:padding="16dp"
+        android:clipToPadding="false"/>
 
 </android.support.constraint.ConstraintLayout>

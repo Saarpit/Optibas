@@ -1,25 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="64dp">
 
     <TextView
         android:id="@+id/userFullNameView"
-        android:layout_width="362dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:padding="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:gravity="center_vertical"
         android:text="Lorem Ipsum"
-        android:textColor="@color/secondaryTextColor" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"/>
 
-    <TextView
-        android:id="@+id/userWeightView"
-        android:text="55kg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:textColor="@color/secondaryTextColor"
-        android:background="@android:color/white" />
 
-</LinearLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/userSecondaryInformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_below="@id/userFullNameView"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:id="@+id/userBirthdayView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="12.11.2010"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/userWeightView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/userWeightView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="55kg"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/userInsulinView"
+            app:layout_constraintStart_toEndOf="@+id/userBirthdayView" />
+
+        <TextView
+            android:id="@+id/userInsulinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="37u"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/userbasalRelative"
+            app:layout_constraintStart_toEndOf="@id/userWeightView" />
+
+        <TextView
+            android:id="@+id/userbasalRelative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="33%"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/userWakeupTimeView"
+            app:layout_constraintStart_toEndOf="@id/userInsulinView" />
+
+        <TextView
+            android:id="@+id/userWakeupTimeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="07:00"
+            android:textAlignment="textEnd"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userbasalRelative" />
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_below="@id/userSecondaryInformationLayout"/>
+
+
+</RelativeLayout>
