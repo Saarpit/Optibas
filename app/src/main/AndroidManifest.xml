@@ -10,15 +10,20 @@
         android:supportsRtl="false"
         android:theme="@style/Optibas">
 
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".ValuesActivity"
             android:label="@string/title_activity_values"
-            android:theme="@style/Optibas" />
+            android:theme="@style/Optibas"
+            android:parentActivityName="de.saarpit.optibas.UserListActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.saarpit.optibas.UserListActivity" />
+        </activity>
         <activity
             android:name=".DataActivity"
             android:label="@string/title_activity_values"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".UserListActivity"
             android:theme="@style/Optibas" />
         <activity
             android:name=".UserListActivity"

@@ -11,10 +11,18 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import de.saarpit.optibas.NewUserActivity;
 import de.saarpit.optibas.R;
 import de.saarpit.optibas.core.Constants;
 
 public class GraphFragment extends Fragment {
+    private String mName;
+    private int mWeight;
+    private double mDailyInsulin;
+    private int mBasalQuota;
+    private String mBirthday;
+    private String mWakeupTime;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,6 +37,16 @@ public class GraphFragment extends Fragment {
 
         // enable scaling and scrolling
         graph.getViewport().setScalable(true);
+
+        Bundle args = this.getArguments();
+
+        assert args != null;
+        mName = args.getString(NewUserActivity.EXTRA_FULLNAME);
+        mWeight = args.getInt(NewUserActivity.EXTRA_WEIGHT);
+        mDailyInsulin = args.getDouble(NewUserActivity.EXTRA_INSULIN);
+        mBasalQuota = args.getInt(NewUserActivity.EXTRA_BASALRELATIVE);
+        mBirthday = args.getString(NewUserActivity.EXTRA_BIRTHDAY);
+        mWakeupTime = args.getString(NewUserActivity.EXTRA_WAKEUPTIME);
 
         return rootView;
     }
