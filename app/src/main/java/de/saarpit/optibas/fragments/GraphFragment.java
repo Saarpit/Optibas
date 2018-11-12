@@ -1,8 +1,7 @@
 package de.saarpit.optibas.fragments;
 
-import android.graphics.Color;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import de.saarpit.optibas.NewUserActivity;
 import de.saarpit.optibas.R;
-import de.saarpit.optibas.core.Constants;
 
 public class GraphFragment extends Fragment {
     private String mName;

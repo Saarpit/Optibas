@@ -3,8 +3,6 @@ package de.saarpit.optibas.view.user;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +15,6 @@ import de.saarpit.optibas.R;
 import de.saarpit.optibas.ValuesActivity;
 import de.saarpit.optibas.data.user.User;
 
-import static android.content.ContentValues.TAG;
-
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
 
     public static final String EXTRA_USER = "de.saarpit.optibas.USER";
@@ -29,7 +25,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         private UserViewHolder(View itemView) {
             super(itemView);
             userItemView = itemView.findViewById(R.id.userFullNameView);
-            userItemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
         }
 
         @Override

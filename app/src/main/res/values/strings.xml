@@ -12,6 +12,7 @@
     <string name="title_activity_values">Basaldistribution</string>
     <string name="table">Table</string>
     <string name="graph">Graph</string>
-    <string name="title_activity_user_list">UserListActivity</string>
+    <string name="title_activity_user_list">User</string>
     <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
 </resources>

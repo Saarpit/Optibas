@@ -21,8 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/activity_main_dateFieldBirthday"
-        android:inputType="date"
         android:importantForAutofill="no"
+        android:clickable="true"
+        android:focusable="false"
         tools:targetApi="o" />
 
     <EditText
@@ -59,8 +60,17 @@
         android:hint="@string/activity_main_timeFieldWakeupTime"
         android:inputType="time"
         android:importantForAutofill="no"
+        android:clickable="true"
+        android:focusable="false"
         tools:targetApi="o" />
 
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        style="@style/Widget.AppCompat.Button"
+        android:text="@string/button_cancel" />
 
     <Button
         android:id="@+id/button_save"

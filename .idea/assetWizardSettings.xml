@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_add_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\epeters" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_blue_circle_for_diabetes" />
+                            <entry key="sourceFile" value="C:\Users\epeters\Pictures\Blue_circle_for_diabetes.svg" />
                           </map>
                         </option>
                       </PersistentState>

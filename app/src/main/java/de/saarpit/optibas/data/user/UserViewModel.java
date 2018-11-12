@@ -22,7 +22,7 @@ public class UserViewModel extends AndroidViewModel {
 
     public User getUserById(int id) {
         return mAllUsers.getValue().get(id);
-    };
+    }
 
     public void insert(User user) { mRepository.insert(user);}
 }

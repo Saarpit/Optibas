@@ -1,34 +1,16 @@
 package de.saarpit.optibas;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.annotation.Nullable;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
-import com.jjoe64.graphview.GraphView;
-
-import java.util.List;
-
-import de.saarpit.optibas.core.Constants;
-import de.saarpit.optibas.data.user.User;
-import de.saarpit.optibas.data.user.UserViewModel;
 import de.saarpit.optibas.fragments.GraphFragment;
 import de.saarpit.optibas.fragments.ValuesFragment;
-import de.saarpit.optibas.view.user.UserListAdapter;
 
 public class ValuesActivity extends AppCompatActivity {
 

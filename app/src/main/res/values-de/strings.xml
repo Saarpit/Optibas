@@ -13,4 +13,6 @@
     <string name="graph">Graph</string>
     <string name="title_activity_values">Basalverteilung</string>
     <string name="button_save">Speichern</string>
+    <string name="title_activity_user_list">Benutzer</string>
+    <string name="button_cancel">Abbrechen</string>
 </resources>

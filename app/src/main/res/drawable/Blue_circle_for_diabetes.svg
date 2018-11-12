@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+
+<path d="	M55,280	 L72,301  L89,310  L106,296 
+			L123,293 L140,286 L157,267 L174,278
+			L191,293 L208,306 L225,329 L242,350
+			L259,346 L276,325 L293,301 L310,280
+			L327,252 L344,221 L361,212 L378,188
+			L395,170 L412,150 L429,187 L445,212"
+	fill="none" stroke="#666" stroke-width="8" stroke-linejoin="round" />	
+
+<path d="	M55,232	 L72,225  L89,212  L106,193 
+			L123,166 L140,150 L157,157 L174,207
+			L191,260 L208,311 L225,333 L242,350
+			L259,344 L276,334 L293,309 L310,256
+			L327,202 L344,180 L361,187 L378,192
+			L395,192 L412,207 L429,207 L445,222"
+	fill="none" stroke="#ffc926" stroke-width="8" stroke-linejoin="round" />	
+
+<path d="	M55,341	 L72,317  L89,280  L106,234 
+			L123,188 L140,150 L157,166 L174,222
+			L191,280 L208,319 L225,336 L242,347
+			L259,350 L276,347 L293,329 L310,305
+			L327,264 L344,260 L361,267 L378,303
+			L395,325 L412,347 L429,350 L445,350"
+	fill="none" stroke="#5C89C7" stroke-width="8" stroke-linejoin="round" />
+	
+<circle cx="250" cy="250" r="220" stroke="#5C89C7" stroke-width="50" fill="none"/>
+</svg>
+
+

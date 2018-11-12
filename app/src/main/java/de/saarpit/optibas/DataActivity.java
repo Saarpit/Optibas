@@ -16,7 +16,7 @@ import de.saarpit.optibas.view.user.UserListAdapter;
 
 public class DataActivity extends AppCompatActivity {
 
-    private UserViewModel mUserViewModel;
+    private final ThreadLocal<UserViewModel> mUserViewModel = new ThreadLocal<UserViewModel>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +28,9 @@ public class DataActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mUserViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+        mUserViewModel.set(ViewModelProviders.of(this).get(UserViewModel.class));
 
-        mUserViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+        mUserViewModel.get().getAllUsers().observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(@Nullable final List<User> users) {
                 // Update the cached copy of the words in the adapter.

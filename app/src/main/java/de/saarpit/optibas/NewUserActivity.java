@@ -3,7 +3,6 @@ package de.saarpit.optibas;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,10 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
+import java.util.Calendar;
 
 public class NewUserActivity extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class NewUserActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
+
         mEditUserName = findViewById(R.id.textFieldName);
         mEditUserBirthday = findViewById(R.id.dateFieldBirthday);
         mEditUserInsulin = findViewById(R.id.numberDecimalFieldInsulin);
@@ -45,14 +48,24 @@ public class NewUserActivity extends AppCompatActivity {
         mEditUserWeight = findViewById(R.id.numberFieldWeight);
         mEditUserWakeupTime = findViewById(R.id.timeFieldWakeupTime);
 
-        final Button button = findViewById(R.id.button_save);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button buttonSave = findViewById(R.id.button_save);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
+                Boolean lError = false;
+
                 // TODO: Leere Felder abfangen und noch eine Meldung geben
                 if (TextUtils.isEmpty(mEditUserName.getText())) {
-                    setResult(RESULT_CANCELED, replyIntent);
-                } else {
+                    mEditUserName.setError("Bitte geben Sie einen Namen ein");
+                    lError = true;
+                }
+
+                if (TextUtils.isEmpty(mEditUserBirthday.getText())) {
+                    mEditUserBirthday.setError("Bitte geben Sie ein Geburtsdatum ein");
+                    lError = true;
+                }
+
+                if (!lError) {
                     String fullName = mEditUserName.getText().toString();
                     replyIntent.putExtra(EXTRA_FULLNAME, fullName);
 
@@ -72,11 +85,19 @@ public class NewUserActivity extends AppCompatActivity {
                     replyIntent.putExtra(EXTRA_WAKEUPTIME, wakeupTime);
 
                     setResult(RESULT_OK, replyIntent);
+                    finish();
                 }
-                finish();
             }
         });
 
+        final Button buttonCancel = findViewById(R.id.button_cancel);
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent replyIntent = new Intent();
+                setResult(RESULT_CANCELED, replyIntent);
+                finish();
+            }
+        });
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -91,10 +112,12 @@ public class NewUserActivity extends AppCompatActivity {
         mEditUserBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                new DatePickerDialog(NewUserActivity.this, date, mCalendar
+                DatePickerDialog lPicker = new DatePickerDialog(NewUserActivity.this, date, mCalendar
                         .get(Calendar.YEAR), mCalendar.get(Calendar.MONTH),
-                        mCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                        mCalendar.get(Calendar.DAY_OF_MONTH));
+
+                lPicker.getDatePicker().setMaxDate(new Date().getTime());
+                lPicker.show();
             }
         });
 
