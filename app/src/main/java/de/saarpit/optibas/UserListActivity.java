@@ -19,6 +19,16 @@ import de.saarpit.optibas.data.user.UserViewModel;
 import de.saarpit.optibas.view.user.UserListAdapter;
 
 
+/*
+Medtronic MINIMED 640G
+Roche Accu Chek Insight
+Roche Accu Chek Combo
+Ypsomed mylife YpsoPump
+Insulet Omnipod
+Dana RS
+Dana R
+Dana IIS
+ */
 public class UserListActivity extends AppCompatActivity {
 
     public static final int NEW_USER_ACTIVITY_REQUEST_CODE = 1;
