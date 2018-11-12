@@ -2,6 +2,7 @@ package de.saarpit.optibas;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -16,6 +17,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 
@@ -44,8 +46,13 @@ public class ValuesActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private UserViewModel mUserViewModel;
-    private User mUser;
+
+    private String mName;
+    private int mWeight;
+    private double mDailyInsulin;
+    private int mBasalQuota;
+    private String mBirthday;
+    private String mWakeupTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +74,14 @@ public class ValuesActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        mUserViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        mUser = mUserViewModel.getUserById(1);
-
+        // Intend auslesen
+        Intent data = getIntent();
+        mName = data.getStringExtra(NewUserActivity.EXTRA_FULLNAME);
+        mWeight = data.getIntExtra(NewUserActivity.EXTRA_WEIGHT, 0);
+        mDailyInsulin = data.getDoubleExtra(NewUserActivity.EXTRA_INSULIN, 0);
+        mBasalQuota = data.getIntExtra(NewUserActivity.EXTRA_BASALRELATIVE, 0);
+        mBirthday = data.getStringExtra(NewUserActivity.EXTRA_BIRTHDAY);
+        mWakeupTime = data.getStringExtra(NewUserActivity.EXTRA_WAKEUPTIME);
     }
 
 
@@ -88,13 +100,23 @@ public class ValuesActivity extends AppCompatActivity {
             if (position == 0) {
                 GraphFragment myFragment = new GraphFragment();
 
-                View rootView = myFragment.getLayoutInflater().inflate(
+                Bundle args = new Bundle();
+
+                args.putString(NewUserActivity.EXTRA_FULLNAME, mName);
+                args.putInt(NewUserActivity.EXTRA_WEIGHT, mWeight);
+                args.putDouble(NewUserActivity.EXTRA_INSULIN, mDailyInsulin);
+                args.putInt(NewUserActivity.EXTRA_BASALRELATIVE, mBasalQuota);
+                args.putString(NewUserActivity.EXTRA_BIRTHDAY, mBirthday);
+                args.putString(NewUserActivity.EXTRA_WAKEUPTIME, mWakeupTime);
+
+                myFragment.setArguments(args);
+                /*View rootView = myFragment.getLayoutInflater().inflate(
                         R.layout.fragment_graph,
                         mViewPager,
                         false
-                );
+                );*/
 
-                GraphView myGraphView = (GraphView) rootView.findViewById(R.id.graphView);
+                /*GraphView myGraphView = (GraphView) rootView.findViewById(R.id.graphView);
 
                 myFragment.addData(
                         myGraphView,
@@ -116,16 +138,16 @@ public class ValuesActivity extends AppCompatActivity {
                         "Erwachsene",
                         getResources().getColor(R.color.graphColorErwachsene)
                 );
-
+*/
                 return myFragment;
             } else {
-                ValuesFragment myFragment = new ValuesFragment();
+                /*ValuesFragment myFragment = new ValuesFragment();
 
                 View rootView = myFragment.getLayoutInflater().inflate(
                         R.layout.fragment_graph,
                         mViewPager,
                         false
-                );
+                );*/
 
 
 

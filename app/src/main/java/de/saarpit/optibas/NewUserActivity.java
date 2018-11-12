@@ -1,12 +1,20 @@
 package de.saarpit.optibas;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class NewUserActivity extends AppCompatActivity {
 
@@ -23,6 +31,8 @@ public class NewUserActivity extends AppCompatActivity {
     private EditText mEditUserBasalRelative;
     private EditText mEditUserWeight;
     private EditText mEditUserWakeupTime;
+
+    private Calendar mCalendar = Calendar.getInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,5 +76,58 @@ public class NewUserActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                mCalendar.set(Calendar.YEAR, year);
+                mCalendar.set(Calendar.MONTH, monthOfYear);
+                mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateBirthdayLabel();
+            }
+        };
+
+        mEditUserBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(NewUserActivity.this, date, mCalendar
+                        .get(Calendar.YEAR), mCalendar.get(Calendar.MONTH),
+                        mCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        final TimePickerDialog.OnTimeSetListener wakeupTime = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                mCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                mCalendar.set(Calendar.MINUTE, minute);
+                updateWakeUpLabel();
+            }
+        };
+
+        mEditUserWakeupTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new TimePickerDialog(NewUserActivity.this, wakeupTime,
+                        mCalendar.get(Calendar.HOUR_OF_DAY), mCalendar.get(Calendar.MINUTE),
+                        true).show();
+            }
+        });
+    }
+
+    private void updateBirthdayLabel() {
+        String myFormat = "dd.MM.yyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.GERMANY);
+
+        mEditUserBirthday.setText(sdf.format(mCalendar.getTime()));
+    }
+
+    private void updateWakeUpLabel() {
+        String myFormat = "HH:mm"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.GERMANY);
+
+        mEditUserWakeupTime.setText(sdf.format(mCalendar.getTime()));
     }
 }

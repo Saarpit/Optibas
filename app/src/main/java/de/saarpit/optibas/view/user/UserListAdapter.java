@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import de.saarpit.optibas.NewUserActivity;
 import de.saarpit.optibas.R;
 import de.saarpit.optibas.ValuesActivity;
 import de.saarpit.optibas.data.user.User;
@@ -34,9 +35,27 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
+            User selectedUser = mUsers.get(itemPosition);
 
             Intent userIntent = new Intent(v.getContext(), ValuesActivity.class);
-            userIntent.putExtra(EXTRA_USER, itemPosition);
+
+            String fullName = selectedUser.getName();
+            userIntent.putExtra(NewUserActivity.EXTRA_FULLNAME, fullName);
+
+            String birthday = selectedUser.getBirthday();
+            userIntent.putExtra(NewUserActivity.EXTRA_BIRTHDAY, birthday);
+
+            double insulin = selectedUser.getDailyInsulin();
+            userIntent.putExtra(NewUserActivity.EXTRA_INSULIN, insulin);
+
+            int basalRelative = selectedUser.getBasalQuota();
+            userIntent.putExtra(NewUserActivity.EXTRA_BASALRELATIVE, basalRelative);
+
+            int weight = selectedUser.getWeight();
+            userIntent.putExtra(NewUserActivity.EXTRA_WEIGHT, weight);
+
+            String wakeupTime = selectedUser.getWakeupTime();
+            userIntent.putExtra(NewUserActivity.EXTRA_WAKEUPTIME, wakeupTime);
 
             v.getContext().startActivity(userIntent);
         }
