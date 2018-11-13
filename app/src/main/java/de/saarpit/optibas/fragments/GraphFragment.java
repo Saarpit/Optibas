@@ -10,8 +10,15 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import de.saarpit.optibas.NewUserActivity;
 import de.saarpit.optibas.R;
+import de.saarpit.optibas.util.DateUtils;
 
 public class GraphFragment extends Fragment {
     private String mName;
@@ -45,6 +52,23 @@ public class GraphFragment extends Fragment {
         mBasalQuota = args.getInt(NewUserActivity.EXTRA_BASALRELATIVE);
         mBirthday = args.getString(NewUserActivity.EXTRA_BIRTHDAY);
         mWakeupTime = args.getString(NewUserActivity.EXTRA_WAKEUPTIME);
+
+        Calendar lCalendar = Calendar.getInstance();
+        String myFormat = "dd.MM.yyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.GERMANY);
+
+        DateUtils lDateUtil = DateUtils.getInstance();
+
+        try {
+            Date lDate = sdf.parse(mBirthday);
+
+            int lAge = lDateUtil.getAge(lDate);
+
+            return rootView;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
         return rootView;
     }
